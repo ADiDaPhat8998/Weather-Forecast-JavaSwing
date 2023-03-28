@@ -12,6 +12,7 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+//helper method to retrieve information from API call and add it to a string
 class HttpUtil {
     public static String sendGet(String url) throws Exception {
         HttpURLConnection connection = null;
@@ -47,6 +48,7 @@ public class weatherApp {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //retrieve weather status from the API call using keywords to filter out targeted information
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -100,7 +102,7 @@ public class weatherApp {
                 for(String in : temp){
                     text+=in;
                 }
-                //JOptionPane.showMessageDialog(null,text);
+                //produce message dialog showing the weather condition of the location input from user
                 JTextArea textArea = new JTextArea(10, 31);
                 textArea.setText(text);
                 textArea.setEditable(false);
