@@ -79,7 +79,7 @@ public class weatherApp {
                     double tempC = Double.parseDouble(dfTwo.format(tempK - 273.15));
                     double feels_likeC = Double.parseDouble(dfTwo.format(feels_likeK - 273.15));
                     double minC = Double.parseDouble(dfTwo.format(minK - 273.15));
-                    double maxC = Double.parseDouble(dfTwo.format(tempK - 273.15));
+                    double maxC = Double.parseDouble(dfTwo.format(maxK - 273.15));
 
                     double tempF = tempC * 9/5 + 32;
                     double feels_likeF = feels_likeC * 9/5 + 32;
@@ -87,10 +87,10 @@ public class weatherApp {
                     double maxF = maxC * 9/5 + 32;
 
                     temp.add("Description: "+description+"\n\n");
-                    temp.add("Temperature: "+tempC+"°C/"+tempF+"°F\n\n");
-                    temp.add("Feels Like: "+feels_likeC+"°C/"+feels_likeF+"°F\n\n");
-                    temp.add("Min Temperature: "+minC+"°C/"+minF+"°F\n\n");
-                    temp.add("Max Temperature: "+maxC+"°C/"+maxF+"°F\n\n");
+                    temp.add("Temperature: "+tempC+"°C/"+dfTwo.format(tempF)+"°F\n\n");
+                    temp.add("Feels Like: "+feels_likeC+"°C/"+dfTwo.format(feels_likeF)+"°F\n\n");
+                    temp.add("Min Temperature: "+minC+"°C/"+dfTwo.format(minF)+"°F\n\n");
+                    temp.add("Max Temperature: "+maxC+"°C/"+dfTwo.format(maxF)+"°F\n\n");
                     temp.add("Pressure: "+pressure+"hPa\n\n");
                     temp.add("Humidity: "+humidity+"%\n\n");
                     temp.add("Visibility: "+visibility/100+"km/"+df.format(visibilityM)+"miles\n");
@@ -103,7 +103,7 @@ public class weatherApp {
                     text+=in;
                 }
                 //produce message dialog showing the weather condition of the location input from user
-                JTextArea textArea = new JTextArea(10, 31);
+                JTextArea textArea = new JTextArea(10, 35);
                 textArea.setText(text);
                 textArea.setEditable(false);
                 JScrollPane scrollPane = new JScrollPane(textArea);
